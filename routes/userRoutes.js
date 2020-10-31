@@ -25,9 +25,8 @@ userRouter.get('/:UserId', async (req, res) => {
 
 // Post a New User
 userRouter.post('/', async (req, res) => {
-    const newUser = new User(req.body);
-
     try {
+        const newUser = new User(req.body);
         const savedUser = await newUser.save();
         res.send(savedUser);
     } catch(err) {
